@@ -16,3 +16,17 @@ Content-Type: application/json
 }
 
 ###
+
+GET {{API_Server_HostAddress}}/api/zeitbuchung
+Accept: application/json
+
+###
+
+POST {{API_Server_HostAddress}}/api/zeitbuchung
+Content-Type: application/json
+
+{
+  "zeitstempel": "2026-05-05T08:00:00Z",
+  "buchungstyp": "Kommen",
+  "mitarbeiterID": 1
+}
