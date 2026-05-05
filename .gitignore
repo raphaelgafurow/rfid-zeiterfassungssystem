@@ -15,3 +15,5 @@ obj/
 
 # Build-Ausgaben
 08_Build/
+
+appsettings.Development.json
