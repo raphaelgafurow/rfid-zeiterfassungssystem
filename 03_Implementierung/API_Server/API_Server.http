@@ -30,3 +30,18 @@ Content-Type: application/json
   "buchungstyp": "Kommen",
   "mitarbeiterID": 1
 }
+
+###
+
+GET {{API_Server_HostAddress}}/api/rfidkarte
+Accept: application/json
+
+###
+
+POST {{API_Server_HostAddress}}/api/rfidKarte
+Content-Type: application/json
+
+{
+  "RFID_UID": "A1B2C3D4",
+  "mitarbeiterID": 1
+}
