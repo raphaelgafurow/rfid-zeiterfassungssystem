@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Admin_Desktop/Admin_Desktop.csproj" />
+  <Project Path="API_Server/API_Server.csproj" />
+  <Project Path="Client_Raspberry/Client_Raspberry.csproj" />
+  <Project Path="Shared/Shared.csproj" />
+</Solution>
