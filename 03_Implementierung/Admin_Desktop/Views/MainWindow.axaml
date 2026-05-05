@@ -3,6 +3,7 @@
         xmlns:vm="using:Admin_Desktop.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shared="using:Shared"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Admin_Desktop.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -15,6 +16,12 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <ListBox ItemsSource="{Binding Mitarbeiter}">
+        <ListBox.ItemTemplate>
+            <DataTemplate x:DataType="shared:Mitarbeiter">
+                <TextBlock Text="{Binding Vorname}"/>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 
 </Window>
