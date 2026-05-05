@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using API_Server.Data;
 using Shared;
 
 namespace API_Server.Controllers;
@@ -8,10 +9,25 @@ namespace API_Server.Controllers;
 
 public class MitarbeiterController : ControllerBase
 {
+    private readonly AppDbContext _db;
+
+    public MitarbeiterController(AppDbContext db)
+    {
+        _db = db;
+    }
+    
     [HttpGet]
     public ActionResult<List<Mitarbeiter>> GetAlle()
     {
-        return Ok(new List<Mitarbeiter>());
+        return Ok(_db.Mitarbeiter.ToList());
     } 
+    
+    [HttpPost]
+    public ActionResult<Mitarbeiter> Erstellen(Mitarbeiter mitarbeiter)
+    {
+        _db.Mitarbeiter.Add(mitarbeiter);
+        _db.SaveChanges();
+        return Ok(mitarbeiter);
+    }
 }
 

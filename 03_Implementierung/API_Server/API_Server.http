@@ -1,6 +1,18 @@
 @API_Server_HostAddress = http://localhost:5210
 
-GET {{API_Server_HostAddress}}/weatherforecast/
+GET {{API_Server_HostAddress}}/api/mitarbeiter
 Accept: application/json
+
+###
+
+POST {{API_Server_HostAddress}}/api/mitarbeiter
+Content-Type: application/json
+
+{
+  "vorname": "Max",
+  "nachname": "Mustermann",
+  "personalnummer": "MA001",
+  "aktiv": true
+}
 
 ###
