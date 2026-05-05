@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Word Sperrdateien
+~$*
+
+# .NET
+bin/
+obj/
+*.user
+.vs/
+
+# Rider / JetBrains
+.idea/
+
+# Build-Ausgaben
+08_Build/
