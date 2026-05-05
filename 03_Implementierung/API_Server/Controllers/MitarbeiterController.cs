@@ -9,7 +9,7 @@ namespace API_Server.Controllers;
 public class MitarbeiterController : ControllerBase
 {
     [HttpGet]
-    public ActionResult<List<Mitarbeiter>> GeAlle()
+    public ActionResult<List<Mitarbeiter>> GetAlle()
     {
         return Ok(new List<Mitarbeiter>());
     } 
