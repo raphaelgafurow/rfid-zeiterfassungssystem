@@ -7,12 +7,15 @@ using Avalonia.Markup.Xaml;
 using Admin_Desktop.ViewModels;
 using Admin_Desktop.Views;
 
+
 namespace Admin_Desktop;
 
 public partial class App : Application
 {
     public override void Initialize()
     {
+        
+        
         AvaloniaXamlLoader.Load(this);
     }
 

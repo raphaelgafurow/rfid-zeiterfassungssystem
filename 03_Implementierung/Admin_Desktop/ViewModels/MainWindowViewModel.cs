@@ -2,8 +2,10 @@
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Json;
+using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Shared;
+
 namespace Admin_Desktop.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
@@ -13,7 +15,10 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public MainWindowViewModel()
     {
-        LadeMitarbeiter();
+        if (!Design.IsDesignMode)
+        {
+            LadeMitarbeiter();
+        }
     }
 
     private async void LadeMitarbeiter()
