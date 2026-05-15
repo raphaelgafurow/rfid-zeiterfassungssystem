@@ -40,13 +40,18 @@ public partial class MainWindowViewModel : ViewModelBase
 
     private async void LadeMitarbeiter()
     {
-        var client = new HttpClient();
-        
-        var liste = await client.GetFromJsonAsync<List<Mitarbeiter>>("http://localhost:5210/api/mitarbeiter");
-        
-        if (liste != null)
+        try
         {
-            Mitarbeiter = new ObservableCollection<Mitarbeiter>(liste);
+            var client = new HttpClient();
+            var liste = await client.GetFromJsonAsync<List<Mitarbeiter>>("http://localhost:5210/api/mitarbeiter");
+            if (liste != null)
+            {
+                Mitarbeiter = new ObservableCollection<Mitarbeiter>(liste);
+            }
+        }
+        catch
+        {
+            
         }
     }
     

@@ -1,5 +1,15 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Admin_Desktop.ViewModels"
+             x:DataType="vm:MitarbeiterViewModel"
              x:Class="Admin_Desktop.Views.MitarbeiterView">
-    <TextBlock>Mitarbeiter</TextBlock>
+    <DataGrid ItemsSource="{Binding Mitarbeiter}" AutoGenerateColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}"/>
+            <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}"/>
+            <DataGridTextColumn Header="Personalnummer" Binding="{Binding Personalnummer}"/>
+            <DataGridTextColumn Header="Abteilung" Binding="{Binding Abteilung}"/>
+            <DataGridTextColumn Header="Rolle" Binding="{Binding Rolle}"/>
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>

@@ -75,11 +75,7 @@
             
         </Border>
         
-        <ContentControl Grid.Column="1" Margin="20">
-            <ContentControl.Content>
-                <ContentControl Grid.Column="1" Content="{Binding AktiverTab}"/>
-            </ContentControl.Content>
-        </ContentControl>
+        <ContentControl Grid.Column="1" Margin="20" Content="{Binding AktiverTab}"/>
     </Grid>
 
 </Window>
