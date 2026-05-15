@@ -30,8 +30,15 @@ namespace API_Server.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MitarbeiterID"));
 
+                    b.Property<string>("Abteilung")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<bool>("Aktiv")
                         .HasColumnType("boolean");
+
+                    b.Property<decimal>("Arbeitszeitkonto")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("Nachname")
                         .IsRequired()
@@ -40,6 +47,13 @@ namespace API_Server.Migrations
                     b.Property<string>("Personalnummer")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<string>("Rolle")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Urlaubstage")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Vorname")
                         .IsRequired()
