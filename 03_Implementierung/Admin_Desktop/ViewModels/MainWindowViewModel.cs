@@ -4,14 +4,31 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Shared;
 
 namespace Admin_Desktop.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
+    [RelayCommand]
+    private void ZeigeMitarbeiter() => AktiverTab = new MitarbeiterViewModel();
+
+    [RelayCommand]
+    private void ZeigeZeiten() => AktiverTab = new ZeitenViewModel();
+
+    [RelayCommand]
+    private void ZeigeDashboard() => AktiverTab = new DashboardViewModel();
+
+    [RelayCommand]
+    private void ZeigeEinstellungen() => AktiverTab = new EinstellungenViewModel();
+    
     [ObservableProperty]
     private ObservableCollection<Mitarbeiter> _mitarbeiter = new();
+    
+    [ObservableProperty]
+    private ViewModelBase _aktiverTab = new MitarbeiterViewModel();
+    
     
     public MainWindowViewModel()
     {
