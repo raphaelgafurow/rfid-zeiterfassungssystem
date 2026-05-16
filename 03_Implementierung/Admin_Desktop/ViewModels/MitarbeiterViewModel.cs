@@ -2,9 +2,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Shared;
+using CommunityToolkit.Mvvm.Input;
+using Admin_Desktop.Views;
 
 namespace Admin_Desktop.ViewModels;
 
@@ -36,5 +39,13 @@ public partial class MitarbeiterViewModel : ViewModelBase
         {
             
         }
+    }
+
+    [RelayCommand]
+    private void NeuerMitarbeiter()
+    {
+        var fenster = new MitarbeiterAnlegenWindow();
+        fenster.ViewModel.Gespeichert += LadeMitarbeiter;
+        fenster.Show();
     }
 }

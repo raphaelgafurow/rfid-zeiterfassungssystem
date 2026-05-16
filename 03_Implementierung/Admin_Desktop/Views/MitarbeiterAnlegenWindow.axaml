@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Admin_Desktop.Views.MitarbeiterAnlegenWindow"
+             xmlns:vm="using:Admin_Desktop.ViewModels"
+             x:DataType="vm:MitarbeiterAnlegenViewModel"
+             Title="Mitarbeiter Anlegen"
+             Width="400" Height="350">
+    <Grid ColumnDefinitions="120,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Vorname:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Vorname}"/>
+        
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Nachname:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Nachname}"/>
+        
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Personalnummer:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Personalnummer}"/>
+        
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Abteilung:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Abteilung}"/>
+        
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Rolle:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Rolle}"/>
+        
+        <StackPanel Grid.Row="5" Orientation="Horizontal">
+            <Button  Command="{Binding SpeichernCommand}" Content="Speichern"></Button>
+            <Button Name="AbbrechenButton" Content="Abbrechen"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
