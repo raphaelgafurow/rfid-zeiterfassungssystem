@@ -62,4 +62,20 @@ public partial class MitarbeiterViewModel : ViewModelBase
         fenster.Show();
     }
 
+    [RelayCommand]
+    private async Task MitarbeiterDeaktivieren()
+    {
+        if (AusgewählterMitarbeiter == null)
+        {
+            return;
+        }
+        else
+        {
+            var client = new HttpClient();
+            var mitarbeiter = AusgewählterMitarbeiter;
+            mitarbeiter.Aktiv = false;
+            await client.PutAsJsonAsync($"http://localhost:5210/api/mitarbeiter/{mitarbeiter.MitarbeiterID}", mitarbeiter);
+            LadeMitarbeiter();
+        }
+    }
 }

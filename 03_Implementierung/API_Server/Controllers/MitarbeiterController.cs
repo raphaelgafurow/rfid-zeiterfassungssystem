@@ -41,6 +41,7 @@ public class MitarbeiterController : ControllerBase
         eintrag.Personalnummer = mitarbeiter.Personalnummer;
         eintrag.Abteilung = mitarbeiter.Abteilung;
         eintrag.Rolle = mitarbeiter.Rolle;
+        eintrag.Aktiv = mitarbeiter.Aktiv;
     
         _db.SaveChanges();
         return Ok(eintrag);
