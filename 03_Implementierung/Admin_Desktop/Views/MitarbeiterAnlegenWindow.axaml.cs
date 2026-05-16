@@ -1,16 +1,17 @@
 using Avalonia.Controls;
 using Admin_Desktop.ViewModels;
+using Shared;
 
 namespace Admin_Desktop.Views;
 
 public partial class MitarbeiterAnlegenWindow : Window
 {
     public MitarbeiterAnlegenViewModel ViewModel => (MitarbeiterAnlegenViewModel)DataContext!;
-    public MitarbeiterAnlegenWindow()
+    public MitarbeiterAnlegenWindow(Mitarbeiter? mitarbeiter = null)
     {
         InitializeComponent();
         
-        DataContext = new MitarbeiterAnlegenViewModel();
+        DataContext = new MitarbeiterAnlegenViewModel(mitarbeiter);
         
         AbbrechenButton.Click += (_, _) => Close();
         

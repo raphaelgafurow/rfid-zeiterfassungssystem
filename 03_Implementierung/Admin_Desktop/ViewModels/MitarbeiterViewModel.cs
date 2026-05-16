@@ -16,6 +16,10 @@ public partial class MitarbeiterViewModel : ViewModelBase
     [ObservableProperty]
     private ObservableCollection<Mitarbeiter> _mitarbeiter = new();
     
+    [ObservableProperty]
+    private Mitarbeiter? _ausgewählterMitarbeiter;
+    
+    
     public MitarbeiterViewModel()
     {
         if (!Design.IsDesignMode)
@@ -48,4 +52,14 @@ public partial class MitarbeiterViewModel : ViewModelBase
         fenster.ViewModel.Gespeichert += LadeMitarbeiter;
         fenster.Show();
     }
+    
+    
+    [RelayCommand]
+    private void MitarbeiterBearbeiten()
+    {
+        var fenster = new MitarbeiterAnlegenWindow(AusgewählterMitarbeiter);
+        fenster.ViewModel.Gespeichert += LadeMitarbeiter;
+        fenster.Show();
+    }
+
 }

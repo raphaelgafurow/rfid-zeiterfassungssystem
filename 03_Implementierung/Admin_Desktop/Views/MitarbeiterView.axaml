@@ -8,18 +8,18 @@
            <TextBox Grid.Column="0" PlaceholderText="Suche..." Width="250" HorizontalAlignment="Left"></TextBox>
            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
                <Button Classes="hinterlegt" Content="+ Neu" Command="{Binding NeuerMitarbeiterCommand}"></Button>
-               <Button Classes="hinterlegt" Content="Bearbeiten"></Button>
+               <Button Classes="hinterlegt" Content="Bearbeiten" Command="{Binding MitarbeiterBearbeitenCommand}"></Button>
                <Button Classes="hinterlegt" Content="Deaktivieren"></Button>
            </StackPanel>
        </Grid>
-       <DataGrid Grid.Row="1" ItemsSource="{Binding Mitarbeiter}" AutoGenerateColumns="False" IsReadOnly="True">
-               <DataGrid.Columns>
-                   <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}"/>
-                   <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}"/>
-                   <DataGridTextColumn Header="Personalnummer" Binding="{Binding Personalnummer}"/>
-                   <DataGridTextColumn Header="Abteilung" Binding="{Binding Abteilung}"/>
-                   <DataGridTextColumn Header="Rolle" Binding="{Binding Rolle}"/>
-               </DataGrid.Columns>
+       <DataGrid Name="MitarbeiterGrid" Grid.Row="1" ItemsSource="{Binding Mitarbeiter}" AutoGenerateColumns="False" IsReadOnly="True">
+           <DataGrid.Columns>
+               <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}"/>
+               <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}"/>
+               <DataGridTextColumn Header="Personalnummer" Binding="{Binding Personalnummer}"/>
+               <DataGridTextColumn Header="Abteilung" Binding="{Binding Abteilung}"/>
+               <DataGridTextColumn Header="Rolle" Binding="{Binding Rolle}"/>
+           </DataGrid.Columns>
        </DataGrid>
    </Grid>
     

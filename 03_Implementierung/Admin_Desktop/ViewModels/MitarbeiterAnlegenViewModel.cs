@@ -26,12 +26,30 @@ public partial class MitarbeiterAnlegenViewModel : ViewModelBase
     
     [ObservableProperty]
     private string _rolle = string.Empty;
+    
+    [ObservableProperty]
+    private int _mitarbeiterID;
+    
+    public MitarbeiterAnlegenViewModel(Mitarbeiter? mitarbeiter = null)
+    {
+        if (mitarbeiter != null)
+        {
+            Vorname = mitarbeiter.Vorname;
+            Nachname = mitarbeiter.Nachname;
+            Personalnummer = mitarbeiter.Personalnummer;
+            Abteilung = mitarbeiter.Abteilung;
+            Rolle = mitarbeiter.Rolle;
+            MitarbeiterID = mitarbeiter.MitarbeiterID;
+        }
+    }
 
     [RelayCommand]
     private async Task Speichern()
     {
+        var client = new HttpClient();
         var mitarbeiter = new Mitarbeiter()
         {
+            MitarbeiterID = this.MitarbeiterID,
             Vorname = this.Vorname,
             Nachname = this.Nachname,
             Personalnummer = this.Personalnummer,
@@ -39,10 +57,17 @@ public partial class MitarbeiterAnlegenViewModel : ViewModelBase
             Rolle = this.Rolle,
             Aktiv = true
         };
+
+        if (MitarbeiterID == 0)
+        {
+            await client.PostAsJsonAsync("http://localhost:5210/api/mitarbeiter/", mitarbeiter);
+        }
+        else
+        {
+            await client.PutAsJsonAsync($"http://localhost:5210/api/mitarbeiter/{MitarbeiterID}", mitarbeiter);
+        }
         
-        var client = new HttpClient();
-        await 
-            client.PostAsJsonAsync("http://localhost:5210/api/mitarbeiter/", mitarbeiter);
+        
         
         Gespeichert?.Invoke();
     }
