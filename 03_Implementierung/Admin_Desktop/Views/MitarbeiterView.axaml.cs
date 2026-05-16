@@ -14,7 +14,11 @@ public partial class MitarbeiterView : UserControl
             if (DataContext is MitarbeiterViewModel vm)
                 vm.AusgewählterMitarbeiter = MitarbeiterGrid.SelectedItem as Mitarbeiter;
         };
-        
+        MitarbeiterGrid.LoadingRow += (_, e) =>
+        {
+            if (e.Row.DataContext is Mitarbeiter m)
+                e.Row.Opacity = m.Aktiv ? 1.0 : 0.4;
+        };
     }
     
     

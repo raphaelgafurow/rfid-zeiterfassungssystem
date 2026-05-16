@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -13,6 +15,9 @@ namespace Admin_Desktop.ViewModels;
 
 public partial class MitarbeiterViewModel : ViewModelBase
 {
+    [ObservableProperty]
+    private string _mitarbeiterSuche = string.Empty;
+    
     [ObservableProperty]
     private ObservableCollection<Mitarbeiter> _mitarbeiter = new();
     
@@ -77,5 +82,22 @@ public partial class MitarbeiterViewModel : ViewModelBase
             await client.PutAsJsonAsync($"http://localhost:5210/api/mitarbeiter/{mitarbeiter.MitarbeiterID}", mitarbeiter);
             LadeMitarbeiter();
         }
+    }
+    
+    public IEnumerable<Mitarbeiter> GefilterteMitarbeiter =>
+        string.IsNullOrEmpty(MitarbeiterSuche)
+            ? Mitarbeiter
+            : Mitarbeiter.Where(m => 
+                m.Vorname.Contains(MitarbeiterSuche, StringComparison.OrdinalIgnoreCase) ||
+                m.Nachname.Contains(MitarbeiterSuche, StringComparison.OrdinalIgnoreCase));
+    
+    partial void OnMitarbeiterSucheChanged(string value)
+    {
+        OnPropertyChanged(nameof(GefilterteMitarbeiter));
+    }
+    
+    partial void OnMitarbeiterChanged(ObservableCollection<Mitarbeiter> value)
+    {
+        OnPropertyChanged(nameof(GefilterteMitarbeiter));
     }
 }

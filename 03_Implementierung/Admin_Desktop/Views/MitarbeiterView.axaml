@@ -5,14 +5,14 @@
              x:Class="Admin_Desktop.Views.MitarbeiterView">
    <Grid RowDefinitions="Auto,*">
        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,10">
-           <TextBox Grid.Column="0" PlaceholderText="Suche..." Width="250" HorizontalAlignment="Left"></TextBox>
+           <TextBox Grid.Column="0" PlaceholderText="Suche..." Width="250" HorizontalAlignment="Left" Text="{Binding MitarbeiterSuche}"></TextBox>
            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
                <Button Classes="hinterlegt" Content="+ Neu" Command="{Binding NeuerMitarbeiterCommand}"></Button>
                <Button Classes="hinterlegt" Content="Bearbeiten" Command="{Binding MitarbeiterBearbeitenCommand}"></Button>
                <Button Classes="hinterlegt" Content="Deaktivieren" Command="{Binding MitarbeiterDeaktivierenCommand}"></Button>
            </StackPanel>
        </Grid>
-       <DataGrid Name="MitarbeiterGrid" Grid.Row="1" ItemsSource="{Binding Mitarbeiter}" AutoGenerateColumns="False" IsReadOnly="True">
+       <DataGrid Name="MitarbeiterGrid" Grid.Row="1" ItemsSource="{Binding GefilterteMitarbeiter}" AutoGenerateColumns="False" IsReadOnly="True">
            <DataGrid.Columns>
                <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}"/>
                <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}"/>
