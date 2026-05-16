@@ -17,9 +17,6 @@
     </Design.DataContext>
     
     <Window.Styles>
-        <Style Selector="Button.abmelden">
-            <Setter Property="Background" Value="Gray"></Setter>
-        </Style>
         <Style Selector="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="3"/>
@@ -33,7 +30,7 @@
         <Border Grid.Column="0" Background="Gainsboro" Padding="10">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Top" FontWeight="Bold" FontSize="20" TextWrapping="Wrap" Margin="0,10,0,20">Zeiterfassung System</TextBlock>
-                <Button DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" Classes="abmelden">
+                <Button DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" Classes="hinterlegt">
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <PathIcon Data="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" Width="16" Height="16"/>
                         <TextBlock>Abmelden</TextBlock>

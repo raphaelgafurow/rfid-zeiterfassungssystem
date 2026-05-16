@@ -12,6 +12,8 @@
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
-        
+        <Style Selector="Button.hinterlegt">
+            <Setter Property="Background" Value="LightGray"></Setter>
+        </Style>
     </Application.Styles>
 </Application>

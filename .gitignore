@@ -17,3 +17,6 @@ obj/
 08_Build/
 
 appsettings.Development.json
+
+# Claude Code
+.claude/
