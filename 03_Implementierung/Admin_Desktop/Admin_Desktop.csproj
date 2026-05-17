@@ -46,5 +46,9 @@
       <DependentUpon>EinstellungenView.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MitarbeiterAnlegenWindow.axaml.cs">
+      <DependentUpon>MitarbeiterAnlegenWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

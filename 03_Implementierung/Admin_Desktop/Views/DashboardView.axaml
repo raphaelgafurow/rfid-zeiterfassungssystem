@@ -1,5 +1,21 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Admin_Desktop.ViewModels"
+             x:DataType="vm:DashboardViewModel"
              x:Class="Admin_Desktop.Views.DashboardView">
-    <TextBlock>Dashboard</TextBlock>
+    <StackPanel Orientation="Horizontal" Spacing="16" Margin="20">
+        <Border Background="#2196F3" CornerRadius="8" Padding="20" Width="150">
+            <StackPanel>
+                <TextBlock Text="Aktive Mitarbeiter" Foreground="White"/>
+                <TextBlock Text="{Binding AktiveMitarbeiter}" FontSize="32" Foreground="White"/>
+            </StackPanel>
+        </Border>
+        
+        <Border Background="#9E9E9E" CornerRadius="8" Padding="20" Width="150">
+            <StackPanel>
+                <TextBlock Text="Inaktive Mitarbeiter" Foreground="White"/>
+                <TextBlock Text="{Binding InaktiveMitarbeiter}" FontSize="32" Foreground="White"/>
+            </StackPanel>
+        </Border>
+    </StackPanel>
 </UserControl>
